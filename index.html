@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Hamper Gifts - Parcel Tracking</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f6fa;
+    min-height: 100vh;
+}
+
+.header {
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.header h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 14px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.result {
+    display: none;
+    margin-top: 25px;
+}
+
+.status {
+    background: #f1eaff;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.status strong {
+    color: #7b2ff7;
+    font-size: 18px;
+}
+
+.details {
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.details b {
+    color: #333;
+}
+
+.timeline {
+    margin-top: 20px;
+    border-left: 3px solid #7b2ff7;
+    padding-left: 18px;
+}
+
+.step {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.step::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #7b2ff7;
+    border-radius: 50%;
+    position: absolute;
+    left: -26px;
+    top: 5px;
+}
+
+.error {
+    display: none;
+    color: #d60000;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>🎁 Premium Hamper Gifts</h1>
+    <p>Parcel Tracking System</p>
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>📦 Track Your Parcel</h2>
+
+        <input
+            type="tel"
+            id="mobile"
+            placeholder="Enter Mobile Number"
+            maxlength="10"
+        >
+
+        <button onclick="trackParcel()">
+            🔍 Track Parcel
+        </button>
+
+        <div class="error" id="error">
+            ❌ No parcel found for this mobile number.
+        </div>
+
+        <div class="result" id="result">
+
+            <div class="status">
+                <div>Current Status</div>
+                <strong>🚚 In Transit</strong>
+            </div>
+
+            <div class="details">
+
+                <p><b>Customer Name:</b> Mamtha</p>
+
+                <p><b>Mobile:</b> 9611025251</p>
+
+                <p><b>Delivery Address:</b><br>
+                HRBR MTR Hotel,<br>
+                3rd Floor,<br>
+                Bangalore - 560043
+                </p>
+
+                <p><b>Tracking ID:</b> PHG-9611025251</p>
+
+            </div>
+
+            <div class="timeline">
+
+                <div class="step">
+                    <b>📦 Order Confirmed</b>
+                    <br>
+                    Parcel information received.
+                </div>
+
+                <div class="step">
+                    <b>🏢 Parcel Processing</b>
+                    <br>
+                    Parcel is being prepared.
+                </div>
+
+                <div class="step">
+                    <b>🚚 In Transit</b>
+                    <br>
+                    Parcel is currently in transit.
+                </div>
+
+                <div class="step">
+                    <b>🏠 Out for Delivery</b>
+                    <br>
+                    Pending
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    © 2026 Premium Hamper Gifts | Hamper Tracking System
+</div>
+
+<script>
+
+function trackParcel() {
+
+    const mobile = document.getElementById("mobile").value.trim();
+
+    const result = document.getElementById("result");
+    const error = document.getElementById("error");
+
+    result.style.display = "none";
+    error.style.display = "none";
+
+    if (mobile === "9611025251") {
+
+        result.style.display = "block";
+
+    } else {
+
+        error.style.display = "block";
+
+    }
+}
+
+</script>
+
+</body>
+  </html>
