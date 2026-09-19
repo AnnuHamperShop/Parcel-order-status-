@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Premium Hamper Gifts - Parcel Tracking</title>
 
 <style>
@@ -26,7 +27,7 @@ body {
 }
 
 .header h1 {
-    font-size: 26px;
+    font-size: 27px;
     margin-bottom: 8px;
 }
 
@@ -35,36 +36,41 @@ body {
 }
 
 .container {
-    max-width: 500px;
+    max-width: 520px;
     margin: 30px auto;
     padding: 0 15px;
 }
 
 .card {
     background: white;
-    border-radius: 18px;
+    border-radius: 20px;
     padding: 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.09);
 }
 
 .card h2 {
     text-align: center;
-    margin-bottom: 20px;
     color: #222;
+    margin-bottom: 20px;
 }
 
 input {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
     border: 1px solid #ddd;
     border-radius: 10px;
     font-size: 16px;
+    outline: none;
     margin-bottom: 12px;
+}
+
+input:focus {
+    border-color: #7b2ff7;
 }
 
 button {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
     border: none;
     border-radius: 10px;
     background: linear-gradient(135deg, #7b2ff7, #f107a3);
@@ -78,78 +84,181 @@ button:hover {
     opacity: 0.9;
 }
 
+.error {
+    display: none;
+    color: #d60000;
+    background: #ffecec;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 15px;
+}
+
 .result {
     display: none;
     margin-top: 25px;
 }
 
+/* STATUS */
+
 .status {
     background: #f1eaff;
-    padding: 15px;
-    border-radius: 12px;
+    padding: 18px;
+    border-radius: 14px;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.status strong {
-    color: #7b2ff7;
-    font-size: 18px;
+.status-title {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
+.status strong {
+    color: #7b2ff7;
+    font-size: 19px;
+}
+
+/* DETAILS */
+
 .details {
-    line-height: 1.9;
+    background: #fafafa;
+    border-radius: 14px;
+    padding: 18px;
+    line-height: 1.8;
     font-size: 15px;
 }
 
-.details b {
-    color: #333;
+.details p {
+    margin-bottom: 10px;
 }
 
+.details b {
+    color: #222;
+}
+
+/* DELIVERY DATE */
+
+.delivery-date {
+    background: #eafff0;
+    border: 1px solid #b9efca;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.delivery-date span {
+    display: block;
+    color: #16823b;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* CHARGE */
+
+.charge {
+    background: #fff3f3;
+    border: 1px solid #ffcaca;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.charge-title {
+    color: #555;
+}
+
+.pending {
+    display: block;
+    color: #d60000;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+/* TIMELINE */
+
 .timeline {
-    margin-top: 20px;
+    margin-top: 25px;
     border-left: 3px solid #7b2ff7;
-    padding-left: 18px;
+    padding-left: 20px;
 }
 
 .step {
-    margin-bottom: 18px;
+    margin-bottom: 22px;
     position: relative;
+    line-height: 1.6;
 }
 
 .step::before {
     content: "";
-    width: 12px;
-    height: 12px;
+    width: 13px;
+    height: 13px;
     background: #7b2ff7;
     border-radius: 50%;
     position: absolute;
-    left: -26px;
+    left: -28px;
     top: 5px;
 }
 
-.error {
-    display: none;
-    color: #d60000;
-    text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
+.step b {
+    color: #222;
 }
+
+.step small {
+    color: #777;
+}
+
+.pending-step {
+    color: #d60000;
+}
+
+/* FOOTER */
 
 .footer {
     text-align: center;
-    padding: 25px;
+    padding: 25px 15px;
     color: #777;
     font-size: 13px;
+}
+
+/* MOBILE */
+
+@media(max-width: 480px) {
+
+    .header h1 {
+        font-size: 23px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .details {
+        font-size: 14px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <div class="header">
+
     <h1>🎁 Premium Hamper Gifts</h1>
+
     <p>Parcel Tracking System</p>
+
 </div>
+
+
+<!-- MAIN -->
 
 <div class="container">
 
@@ -168,58 +277,164 @@ button:hover {
             🔍 Track Parcel
         </button>
 
+
+        <!-- ERROR -->
+
         <div class="error" id="error">
+
             ❌ No parcel found for this mobile number.
+
         </div>
+
+
+        <!-- RESULT -->
 
         <div class="result" id="result">
 
+
+            <!-- STATUS -->
+
             <div class="status">
-                <div>Current Status</div>
-                <strong>🚚 In Transit</strong>
+
+                <div class="status-title">
+                    Current Parcel Status
+                </div>
+
+                <strong>
+                    🚚 In Transit
+                </strong>
+
             </div>
+
+
+            <!-- CUSTOMER DETAILS -->
 
             <div class="details">
 
-                <p><b>Customer Name:</b> Mamtha</p>
-
-                <p><b>Mobile:</b> 9611025251</p>
-
-                <p><b>Delivery Address:</b><br>
-                HRBR MTR Hotel,<br>
-                3rd Floor,<br>
-                Bangalore - 560043
+                <p>
+                    <b>Customer Name:</b><br>
+                    Mamtha
                 </p>
 
-                <p><b>Tracking ID:</b> PHG-9611025251</p>
+                <p>
+                    <b>Mobile Number:</b><br>
+                    9611025251
+                </p>
+
+                <p>
+                    <b>Delivery Address:</b><br>
+                    HRBR MTR Hotel,<br>
+                    3rd Floor,<br>
+                    Bangalore - 560043
+                </p>
+
+                <p>
+                    <b>Tracking ID:</b><br>
+                    PHG-9611025251
+                </p>
 
             </div>
 
+
+            <!-- EXPECTED DELIVERY -->
+
+            <div class="delivery-date">
+
+                📅 Expected Delivery
+
+                <span>
+                    25 September 2026
+                </span>
+
+            </div>
+
+
+            <!-- DELIVERY CHARGE -->
+
+            <div class="charge">
+
+                <div class="charge-title">
+                    💳 Delivery Charge
+                </div>
+
+                <span class="pending">
+                    ⚠️ PENDING
+                </span>
+
+            </div>
+
+
+            <!-- TRACKING TIMELINE -->
+
             <div class="timeline">
 
+
                 <div class="step">
+
                     <b>📦 Order Confirmed</b>
+
                     <br>
-                    Parcel information received.
+
+                    <small>
+                        Parcel information received.
+                    </small>
+
                 </div>
 
+
                 <div class="step">
+
                     <b>🏢 Parcel Processing</b>
+
                     <br>
-                    Parcel is being prepared.
+
+                    <small>
+                        Parcel is being prepared.
+                    </small>
+
                 </div>
 
+
                 <div class="step">
+
                     <b>🚚 In Transit</b>
+
                     <br>
-                    Parcel is currently in transit.
+
+                    <small>
+                        Parcel is currently in transit.
+                    </small>
+
                 </div>
 
+
                 <div class="step">
-                    <b>🏠 Out for Delivery</b>
+
+                    <b>📅 Expected Delivery</b>
+
                     <br>
-                    Pending
+
+                    <small>
+                        25 September 2026
+                    </small>
+
                 </div>
+
+
+                <div class="step">
+
+                    <b class="pending-step">
+                        💳 Delivery Charge
+                    </b>
+
+                    <br>
+
+                    <small class="pending-step">
+                        Pending
+                    </small>
+
+                </div>
+
 
             </div>
 
@@ -229,21 +444,41 @@ button:hover {
 
 </div>
 
+
+<!-- FOOTER -->
+
 <div class="footer">
-    © 2026 Premium Hamper Gifts | Hamper Tracking System
+
+    © 2026 Premium Hamper Gifts
+    <br>
+    Parcel Tracking System
+
 </div>
+
+
+<!-- JAVASCRIPT -->
 
 <script>
 
 function trackParcel() {
 
-    const mobile = document.getElementById("mobile").value.trim();
+    const mobile =
+        document.getElementById("mobile").value.trim();
 
-    const result = document.getElementById("result");
-    const error = document.getElementById("error");
+    const result =
+        document.getElementById("result");
+
+    const error =
+        document.getElementById("error");
+
+
+    // Hide previous results
 
     result.style.display = "none";
     error.style.display = "none";
+
+
+    // Your tracking number
 
     if (mobile === "9611025251") {
 
@@ -254,9 +489,10 @@ function trackParcel() {
         error.style.display = "block";
 
     }
+
 }
 
 </script>
 
 </body>
-  </html>
+    </html>
