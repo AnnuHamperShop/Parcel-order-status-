@@ -4,203 +4,498 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Premium Hamper Gifts - Demo Tracking</title>
+<title>Premium Hamper Gifts | Parcel Tracking</title>
 
 <style>
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial,sans-serif;
+    box-sizing:border-box;
+    font-family:Inter,Arial,sans-serif;
 }
 
 body{
-    background:#f5f6fa;
-    color:#222;
+    background:#f4f7fb;
+    color:#172033;
 }
 
-.header{
-    background:linear-gradient(135deg,#7b2ff7,#f107a3);
+/* HEADER */
+
+header{
+    background:#111827;
     color:white;
-    text-align:center;
-    padding:28px 15px;
+    padding:16px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
-.header h1{
-    font-size:25px;
-    margin-bottom:7px;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
-.header p{
-    font-size:14px;
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#8b5cf6,#ec4899);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
 }
 
-.demo{
-    background:#fff3cd;
-    color:#664d03;
-    text-align:center;
-    padding:8px;
+.logo h1{
+    font-size:18px;
+}
+
+.logo small{
+    display:block;
+    color:#aeb7c7;
+    margin-top:2px;
+}
+
+.header-badge{
+    background:#1f2937;
+    border:1px solid #374151;
+    padding:8px 13px;
+    border-radius:30px;
     font-size:12px;
-    font-weight:bold;
+    color:#d1d5db;
 }
 
-.container{
-    max-width:520px;
-    margin:25px auto;
-    padding:0 15px;
-}
+/* DEMO NOTICE */
 
-.card{
-    background:white;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 8px 30px rgba(0,0,0,.08);
-}
-
-h2{
+.demo-notice{
+    background:#fff8e1;
+    border-bottom:1px solid #f3df9a;
+    color:#725500;
+    padding:9px 15px;
     text-align:center;
-    margin-bottom:20px;
+    font-size:12px;
 }
 
-input{
-    width:100%;
-    padding:14px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    font-size:16px;
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#111827,#312e81);
+    color:white;
+    padding:55px 20px 75px;
+    text-align:center;
+}
+
+.hero h2{
+    font-size:36px;
     margin-bottom:12px;
 }
 
-button{
-    width:100%;
-    padding:14px;
-    border:0;
-    border-radius:10px;
-    background:linear-gradient(135deg,#7b2ff7,#f107a3);
-    color:white;
-    font-size:16px;
-    font-weight:bold;
+.hero p{
+    color:#d1d5db;
+    max-width:600px;
+    margin:auto;
+    line-height:1.6;
 }
 
-.error{
-    display:none;
-    margin-top:15px;
-    padding:12px;
-    text-align:center;
-    background:#ffecec;
-    color:#c00;
-    border-radius:10px;
+/* TRACK BOX */
+
+.track-box{
+    max-width:760px;
+    margin:-35px auto 30px;
+    position:relative;
+    padding:25px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 15px 45px rgba(0,0,0,.12);
 }
 
-.result{
-    display:none;
-    margin-top:25px;
-}
-
-.status{
-    background:#f1eaff;
-    padding:17px;
-    border-radius:13px;
+.track-box h3{
     text-align:center;
     margin-bottom:18px;
 }
 
-.status strong{
-    color:#7b2ff7;
-    font-size:19px;
+.search-row{
+    display:flex;
+    gap:10px;
 }
 
-.details{
+.search-row input{
+    flex:1;
+    border:1px solid #dbe1ea;
+    border-radius:12px;
+    padding:15px;
+    font-size:15px;
+    outline:none;
+}
+
+.search-row input:focus{
+    border-color:#7c3aed;
+}
+
+.search-btn{
+    border:0;
+    border-radius:12px;
+    padding:0 25px;
+    background:linear-gradient(135deg,#7c3aed,#db2777);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.search-hint{
+    text-align:center;
+    margin-top:12px;
+    color:#7b8494;
+    font-size:12px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:1050px;
+    margin:auto;
+    padding:0 20px 50px;
+}
+
+.result{
+    display:none;
+}
+
+/* SUMMARY */
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.summary-card{
+    background:white;
+    border-radius:17px;
+    padding:20px;
+    border:1px solid #e8ebf0;
+}
+
+.summary-card span{
+    display:block;
+    color:#7b8494;
+    font-size:12px;
+    margin-bottom:7px;
+}
+
+.summary-card strong{
+    font-size:16px;
+}
+
+.status-green{
+    color:#15803d;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:1.4fr .8fr;
+    gap:20px;
+}
+
+/* CARD */
+
+.card{
+    background:white;
+    border-radius:20px;
+    border:1px solid #e8ebf0;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.035);
+}
+
+.card-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.card-title h3{
+    font-size:18px;
+}
+
+.card-title span{
+    color:#7b8494;
+    font-size:12px;
+}
+
+/* TIMELINE */
+
+.timeline{
+    position:relative;
+    padding-left:35px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:9px;
+    top:7px;
+    bottom:7px;
+    width:2px;
+    background:#d1d5db;
+}
+
+.timeline-item{
+    position:relative;
+    padding-bottom:28px;
+}
+
+.timeline-item:last-child{
+    padding-bottom:0;
+}
+
+.dot{
+    position:absolute;
+    left:-32px;
+    top:2px;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#111827;
+    border:4px solid white;
+    box-shadow:0 0 0 2px #111827;
+}
+
+.timeline-item.done .dot{
+    background:#16a34a;
+    box-shadow:0 0 0 2px #16a34a;
+}
+
+.timeline-item h4{
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.timeline-item p{
+    color:#737b89;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.date{
+    display:inline-block;
+    margin-top:5px;
+    font-size:12px;
+    color:#555;
+    font-weight:bold;
+}
+
+/* DETAILS */
+
+.detail-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:13px 0;
+    border-bottom:1px solid #edf0f4;
+}
+
+.detail-row:last-child{
+    border-bottom:0;
+}
+
+.detail-row span{
+    color:#7b8494;
+    font-size:13px;
+}
+
+.detail-row strong{
+    text-align:right;
+    font-size:13px;
+}
+
+/* DELIVERY */
+
+.delivery-card{
+    margin-top:20px;
+    background:linear-gradient(135deg,#ecfdf5,#f0fdf4);
+    border:1px solid #bbf7d0;
+    border-radius:17px;
+    padding:20px;
+}
+
+.delivery-card small{
+    color:#15803d;
+}
+
+.delivery-card h3{
+    color:#166534;
+    margin-top:5px;
+}
+
+/* CHARGE */
+
+.charge-card{
+    margin-top:15px;
     background:#fafafa;
-    padding:17px;
-    border-radius:13px;
-    line-height:1.7;
+    border:1px solid #e5e7eb;
+    border-radius:17px;
+    padding:20px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
 }
 
-.details p{
-    margin-bottom:9px;
+.charge-line{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.delivery{
-    margin-top:15px;
-    padding:16px;
-    text-align:center;
-    background:#eafff0;
-    border:1px solid #b9efca;
-    border-radius:13px;
-}
-
-.delivery strong{
-    display:block;
-    margin-top:5px;
-    color:#16823b;
-    font-size:18px;
-}
-
-.charge{
-    margin-top:15px;
-    padding:16px;
-    text-align:center;
-    background:#f7f7f7;
-    border:1px solid #ddd;
-    border-radius:13px;
-    box-shadow:0 4px 12px rgba(0,0,0,.10);
-}
-
-.charge strong{
-    display:block;
-    margin-top:5px;
-    color:#111;
-    font-size:18px;
+.pending{
+    color:#111827;
+    font-weight:bold;
     text-shadow:1px 1px 2px #aaa;
 }
 
-.timeline{
-    margin-top:25px;
-    border-left:3px solid #222;
-    padding-left:20px;
+/* ADDRESS */
+
+.address{
+    background:#f8fafc;
+    border-radius:13px;
+    padding:15px;
+    line-height:1.7;
+    color:#4b5563;
+    font-size:14px;
 }
 
-.step{
-    position:relative;
-    margin-bottom:25px;
-    line-height:1.6;
+/* BUTTONS */
+
+.actions{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
 }
 
-.step::before{
-    content:"";
-    position:absolute;
-    width:13px;
-    height:13px;
-    background:#000;
-    border-radius:50%;
-    left:-28px;
-    top:5px;
+.action-btn{
+    flex:1;
+    border:1px solid #dfe3e9;
+    background:white;
+    border-radius:10px;
+    padding:11px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.step b{
-    font-size:17px;
+.action-btn:hover{
+    background:#f5f5f5;
 }
 
-.step p{
-    color:#777;
-    margin-top:4px;
+/* FAQ */
+
+.faq{
+    max-width:1050px;
+    margin:0 auto 40px;
+    padding:0 20px;
 }
 
-.footer{
+.faq h2{
     text-align:center;
-    color:#777;
-    font-size:13px;
-    padding:25px 15px;
+    margin-bottom:20px;
 }
 
-@media(max-width:480px){
-    .card{
+.faq-item{
+    background:white;
+    border:1px solid #e8ebf0;
+    border-radius:13px;
+    margin-bottom:10px;
+    padding:16px;
+}
+
+.faq-item summary{
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* ERROR */
+
+.error{
+    display:none;
+    background:#fff1f2;
+    color:#be123c;
+    padding:13px;
+    border-radius:10px;
+    text-align:center;
+    margin-top:15px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111827;
+    color:#9ca3af;
+    text-align:center;
+    padding:30px 15px;
+    font-size:13px;
+}
+
+footer strong{
+    color:white;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+        padding:14px 18px;
+    }
+
+    .header-badge{
+        display:none;
+    }
+
+    .hero{
+        padding:40px 18px 65px;
+    }
+
+    .hero h2{
+        font-size:28px;
+    }
+
+    .track-box{
+        margin:-30px 15px 25px;
         padding:20px;
     }
 
-    .header h1{
-        font-size:23px;
+    .search-row{
+        flex-direction:column;
+    }
+
+    .search-btn{
+        padding:14px;
+    }
+
+    .card{
+        padding:19px;
+    }
+
+    .summary{
+        gap:10px;
+    }
+
+    .actions{
+        flex-direction:column;
     }
 }
 </style>
@@ -208,145 +503,423 @@ button{
 
 <body>
 
-<div class="header">
-    <h1>🎁 Premium Hamper Gifts</h1>
-    <p>Parcel Tracking System</p>
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">
+
+<div class="logo-icon">🎁</div>
+
+<div>
+<h1>Premium Hamper Gifts</h1>
+<small>Parcel Tracking</small>
 </div>
 
-<div class="demo">
-TRACKING SYSTEM — OFFICIAL COURIER SERVICE
 </div>
+
+<div class="header-badge">
+🔒 Tracking Portal
+</div>
+
+</header>
+
+
+<!--  NOTICE -->
+
+<div class="demo-notice">
+⚠️ REAL TRACKING SYSTEM — This page is a official courier service.
+</div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h2>Track Your Parcel</h2>
+
+<p>
+Enter your registered mobile number or tracking ID
+to view the available parcel information.
+</p>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="track-box">
+
+<h3>🔎 Shipment Tracking</h3>
+
+<div class="search-row">
+
+<input
+    type="text"
+    id="trackingInput"
+    placeholder="Enter mobile number or Tracking ID"
+>
+
+<button class="search-btn" onclick="trackParcel()">
+    Track Parcel
+</button>
+
+</div>
+
+<div class="search-hint">
+Demo: 9611025251 &nbsp; | &nbsp; PHG-9611025251
+</div>
+
+<div class="error" id="error">
+❌ No parcel information found.
+</div>
+
+</div>
+
+
+<!-- CONTENT -->
 
 <div class="container">
 
-<div class="card">
-
-<h2>📦 Track Your Parcel</h2>
-
-<input
-    type="tel"
-    id="mobile"
-    placeholder="Enter Mobile Number"
-    maxlength="10"
->
-
-<button onclick="trackParcel()">
-    🔍 Track Parcel
-</button>
-
-<div class="error" id="error">
-    ❌ No parcel found for this mobile number.
-</div>
-
 <div class="result" id="result">
 
-<!-- STATUS -->
+<!-- SUMMARY -->
 
-<div class="status">
-    Current Parcel Status
-    <br>
-    <strong>🚚 In Transit</strong>
+<div class="summary">
+
+<div class="summary-card">
+<span>TRACKING ID</span>
+<strong>PHG-9611025251</strong>
 </div>
 
-<!-- CUSTOMER DETAILS -->
+<div class="summary-card">
+<span>CURRENT STATUS</span>
+<strong class="status-green">🚚 In Transit</strong>
+</div>
 
-<div class="details">
-
-<p>
-<b>Customer Name:</b><br>
-Mamtha
-</p>
-
-<p>
-<b>Mobile Number:</b><br>
-9611025251
-</p>
-
-<p>
-<b>Delivery Address:</b><br>
-HRBR MTR Hotel,<br>
-3rd Floor,<br>
-Bangalore - 560043
-</p>
-
-<p>
-<b>Tracking ID:</b><br>
-PHG-9611025251
-</p>
+<div class="summary-card">
+<span>EXPECTED DELIVERY</span>
+<strong>25 September 2026</strong>
+</div>
 
 </div>
 
-<!-- EXPECTED DELIVERY -->
 
-<div class="delivery">
+<div class="grid">
 
-📅 Expected Delivery
+<!-- LEFT -->
 
-<strong>
-25 September 2026
-</strong>
+<div>
 
-</div>
+<div class="card">
 
-<!-- DELIVERY CHARGE -->
+<div class="card-title">
 
-<div class="charge">
+<h3>📦 Shipment Progress</h3>
 
-💳 Delivery Charge
-
-<strong>
-⚠️ PENDING
-</strong>
+<span>Tracking Updates</span>
 
 </div>
 
-<!-- TIMELINE -->
 
 <div class="timeline">
 
-<div class="step">
-    <b>📦 Order Confirmed</b>
-    <p>18 September 2026</p>
-</div>
+<div class="timeline-item done">
 
-<div class="step">
-    <b>🏢 Parcel Processing</b>
-    <p>19 September 2026</p>
-</div>
+<div class="dot"></div>
 
-<div class="step">
-    <b>🚚 In Transit</b>
-    <p>20 September 2026</p>
-</div>
+<h4>📦 Order Confirmed</h4>
 
-<div class="step">
-    <b>📦 Parcel Dispatch</b>
-    <p>Dispatch date: To be updated</p>
-</div>
+<p>
+Order information received.
+</p>
 
-<div class="step">
-    <b>💳 Delivery Charge</b>
-    <p>Pending</p>
-</div>
+<span class="date">
+18 September 2026
+</span>
 
 </div>
 
-</div>
-</div>
+
+<div class="timeline-item done">
+
+<div class="dot"></div>
+
+<h4>🏢 Parcel Processing</h4>
+
+<p>
+Parcel is being prepared for shipment.
+</p>
+
+<span class="date">
+19 September 2026
+</span>
+
 </div>
 
-<div class="footer">
-© 2026 Premium Hamper Gifts
+
+<div class="timeline-item done">
+
+<div class="dot"></div>
+
+<h4>🚚 In Transit</h4>
+
+<p>
+Parcel is currently in transit.
+</p>
+
+<span class="date">
+20 September 2026
+</span>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="dot"></div>
+
+<h4>📦 Parcel Dispatch</h4>
+
+<p>
+Dispatch date will be updated.
+</p>
+
+<span class="date">
+Date to be updated
+</span>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="dot"></div>
+
+<h4>💳 Delivery Charge</h4>
+
+<p>
+Delivery charge status:
+<strong>COMPLETED ✔️</strong>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- DELIVERY -->
+
+<div class="delivery-card">
+
+<small>📅 EXPECTED DELIVERY</small>
+
+<h3>
+25 September 2026
+</h3>
+
+<p style="margin-top:6px;color:#4b5563;font-size:13px;">
+Estimated delivery date shown for this demo shipment.
+</p>
+
+</div>
+
+
+<!-- CHARGE -->
+
+<div class="charge-card">
+
+<div class="charge-line">
+
+<div>
+<strong>💳 Delivery Charge</strong>
 <br>
-Gift Parcel Tracking System
+<small style="color:#777;">
+Current payment status
+</small>
 </div>
+
+<div class="pending">
+⚠️ PENDING
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div>
+
+<div class="card">
+
+<div class="card-title">
+
+<h3>👤 Customer Details</h3>
+
+</div>
+
+
+<div class="detail-row">
+<span>Name</span>
+<strong>Mamtha</strong>
+</div>
+
+<div class="detail-row">
+<span>Mobile</span>
+<strong>9611025251</strong>
+</div>
+
+<div class="detail-row">
+<span>Tracking ID</span>
+<strong>PHG-9611025251</strong>
+</div>
+
+<div class="detail-row">
+<span>Status</span>
+<strong class="status-green">In Transit</strong>
+</div>
+
+</div>
+
+
+<div class="card" style="margin-top:20px;">
+
+<div class="card-title">
+
+<h3>📍 Delivery Address</h3>
+
+</div>
+
+<div class="address">
+
+<strong>Mamtha</strong><br>
+
+HRBR MTR Hotel<br>
+3rd Floor<br>
+Bangalore - 560043
+
+</div>
+
+</div>
+
+
+<div class="card" style="margin-top:20px;">
+
+<div class="card-title">
+
+<h3>⚙️ Options</h3>
+
+</div>
+
+<div class="actions">
+
+<button class="action-btn"
+onclick="copyTracking()">
+📋 Copy ID
+</button>
+
+<button class="action-btn"
+onclick="window.print()">
+🖨️ Print
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FAQ -->
+
+<section class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<details class="faq-item">
+
+<summary>How can I track my parcel?</summary>
+
+<p style="margin-top:10px;color:#666;">
+Enter your registered mobile number or tracking ID
+in the tracking box above.
+</p>
+
+</details>
+
+
+<details class="faq-item">
+
+<summary>What does "In Transit" mean?</summary>
+
+<p style="margin-top:10px;color:#666;">
+</p>
+
+</details>
+
+
+<details class="faq-item">
+
+<summary>When is the expected delivery?</summary>
+
+<p style="margin-top:10px;color:#666;">
+The current Status record shows 25 September 2026.
+</p>
+
+</details>
+
+
+<details class="faq-item">
+
+<summary>What does Delivery Charge Pending mean?</summary>
+
+<p style="margin-top:10px;color:#666;">
+The Real Shop record currently displays the delivery
+charge status as pending.
+</p>
+
+</details>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<strong>🎁 Premium Hamper Gifts</strong>
+
+<br><br>
+
+Parcel Tracking System
+
+<br>
+
+© 2026 Premium Hamper Gifts
+
+</footer>
+
 
 <script>
 
 function trackParcel(){
 
-    const mobile =
-        document.getElementById("mobile").value.trim();
+    const input =
+        document.getElementById("trackingInput")
+        .value
+        .trim();
 
     const result =
         document.getElementById("result");
@@ -354,21 +927,57 @@ function trackParcel(){
     const error =
         document.getElementById("error");
 
+
     result.style.display="none";
     error.style.display="none";
 
-    if(mobile === "9611025251"){
+
+    if(
+        input === "9611025251" ||
+        input.toUpperCase() === "PHG-9611025251"
+    ){
 
         result.style.display="block";
+
+        setTimeout(function(){
+
+            result.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+        },100);
 
     }else{
 
         error.style.display="block";
 
     }
+
 }
+
+
+function copyTracking(){
+
+    navigator.clipboard.writeText(
+        "PHG-9611025251"
+    );
+
+    alert("Tracking ID copied!");
+
+}
+
+
+document.getElementById("trackingInput")
+.addEventListener("keypress",function(event){
+
+    if(event.key === "Enter"){
+        trackParcel();
+    }
+
+});
 
 </script>
 
 </body>
-</html>
+    </html>
