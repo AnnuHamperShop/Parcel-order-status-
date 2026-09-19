@@ -4,242 +4,203 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Premium Hamper Gifts - Parcel Tracking</title>
+<title>Premium Hamper Gifts - Demo Tracking</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
 }
 
-body {
-    background: #f5f6fa;
-    min-height: 100vh;
+body{
+    background:#f5f6fa;
+    color:#222;
 }
 
-.header {
-    background: linear-gradient(135deg, #7b2ff7, #f107a3);
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
+.header{
+    background:linear-gradient(135deg,#7b2ff7,#f107a3);
+    color:white;
+    text-align:center;
+    padding:28px 15px;
 }
 
-.header h1 {
-    font-size: 27px;
-    margin-bottom: 8px;
+.header h1{
+    font-size:25px;
+    margin-bottom:7px;
 }
 
-.header p {
-    font-size: 14px;
+.header p{
+    font-size:14px;
 }
 
-.container {
-    max-width: 520px;
-    margin: 30px auto;
-    padding: 0 15px;
+.demo{
+    background:#fff3cd;
+    color:#664d03;
+    text-align:center;
+    padding:8px;
+    font-size:12px;
+    font-weight:bold;
 }
 
-.card {
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.09);
+.container{
+    max-width:520px;
+    margin:25px auto;
+    padding:0 15px;
 }
 
-.card h2 {
-    text-align: center;
-    color: #222;
-    margin-bottom: 20px;
+.card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
 
-input {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 16px;
-    outline: none;
-    margin-bottom: 12px;
+h2{
+    text-align:center;
+    margin-bottom:20px;
 }
 
-input:focus {
-    border-color: #7b2ff7;
+input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    margin-bottom:12px;
 }
 
-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #7b2ff7, #f107a3);
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+button{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(135deg,#7b2ff7,#f107a3);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
 }
 
-button:hover {
-    opacity: 0.9;
+.error{
+    display:none;
+    margin-top:15px;
+    padding:12px;
+    text-align:center;
+    background:#ffecec;
+    color:#c00;
+    border-radius:10px;
 }
 
-.error {
-    display: none;
-    color: #d60000;
-    background: #ffecec;
-    padding: 12px;
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 15px;
+.result{
+    display:none;
+    margin-top:25px;
 }
 
-.result {
-    display: none;
-    margin-top: 25px;
+.status{
+    background:#f1eaff;
+    padding:17px;
+    border-radius:13px;
+    text-align:center;
+    margin-bottom:18px;
 }
 
-/* STATUS */
-
-.status {
-    background: #f1eaff;
-    padding: 18px;
-    border-radius: 14px;
-    text-align: center;
-    margin-bottom: 20px;
+.status strong{
+    color:#7b2ff7;
+    font-size:19px;
 }
 
-.status-title {
-    color: #555;
-    font-size: 14px;
-    margin-bottom: 5px;
+.details{
+    background:#fafafa;
+    padding:17px;
+    border-radius:13px;
+    line-height:1.7;
 }
 
-.status strong {
-    color: #7b2ff7;
-    font-size: 19px;
+.details p{
+    margin-bottom:9px;
 }
 
-/* DETAILS */
-
-.details {
-    background: #fafafa;
-    border-radius: 14px;
-    padding: 18px;
-    line-height: 1.8;
-    font-size: 15px;
+.delivery{
+    margin-top:15px;
+    padding:16px;
+    text-align:center;
+    background:#eafff0;
+    border:1px solid #b9efca;
+    border-radius:13px;
 }
 
-.details p {
-    margin-bottom: 10px;
+.delivery strong{
+    display:block;
+    margin-top:5px;
+    color:#16823b;
+    font-size:18px;
 }
 
-.details b {
-    color: #222;
+.charge{
+    margin-top:15px;
+    padding:16px;
+    text-align:center;
+    background:#f7f7f7;
+    border:1px solid #ddd;
+    border-radius:13px;
+    box-shadow:0 4px 12px rgba(0,0,0,.10);
 }
 
-/* DELIVERY DATE */
-
-.delivery-date {
-    background: #eafff0;
-    border: 1px solid #b9efca;
-    padding: 15px;
-    border-radius: 12px;
-    margin-top: 15px;
-    text-align: center;
+.charge strong{
+    display:block;
+    margin-top:5px;
+    color:#111;
+    font-size:18px;
+    text-shadow:1px 1px 2px #aaa;
 }
 
-.delivery-date span {
-    display: block;
-    color: #16823b;
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 5px;
+.timeline{
+    margin-top:25px;
+    border-left:3px solid #222;
+    padding-left:20px;
 }
 
-/* CHARGE */
-
-.charge {
-    background: #fff3f3;
-    border: 1px solid #ffcaca;
-    padding: 15px;
-    border-radius: 12px;
-    margin-top: 15px;
-    text-align: center;
+.step{
+    position:relative;
+    margin-bottom:25px;
+    line-height:1.6;
 }
 
-.charge-title {
-    color: #555;
+.step::before{
+    content:"";
+    position:absolute;
+    width:13px;
+    height:13px;
+    background:#000;
+    border-radius:50%;
+    left:-28px;
+    top:5px;
 }
 
-.pending {
-    display: block;
-    color: #d60000;
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 5px;
+.step b{
+    font-size:17px;
 }
 
-/* TIMELINE */
-
-.timeline {
-    margin-top: 25px;
-    border-left: 3px solid #7b2ff7;
-    padding-left: 20px;
+.step p{
+    color:#777;
+    margin-top:4px;
 }
 
-.step {
-    margin-bottom: 22px;
-    position: relative;
-    line-height: 1.6;
+.footer{
+    text-align:center;
+    color:#777;
+    font-size:13px;
+    padding:25px 15px;
 }
 
-.step::before {
-    content: "";
-    width: 13px;
-    height: 13px;
-    background: #7b2ff7;
-    border-radius: 50%;
-    position: absolute;
-    left: -28px;
-    top: 5px;
-}
-
-.step b {
-    color: #222;
-}
-
-.step small {
-    color: #777;
-}
-
-.pending-step {
-    color: #d60000;
-}
-
-/* FOOTER */
-
-.footer {
-    text-align: center;
-    padding: 25px 15px;
-    color: #777;
-    font-size: 13px;
-}
-
-/* MOBILE */
-
-@media(max-width: 480px) {
-
-    .header h1 {
-        font-size: 23px;
+@media(max-width:480px){
+    .card{
+        padding:20px;
     }
 
-    .card {
-        padding: 20px;
-    }
-
-    .details {
-        font-size: 14px;
+    .header h1{
+        font-size:23px;
     }
 }
 </style>
@@ -247,220 +208,142 @@ button:hover {
 
 <body>
 
-<!-- HEADER -->
-
 <div class="header">
-
     <h1>🎁 Premium Hamper Gifts</h1>
-
     <p>Parcel Tracking System</p>
-
 </div>
 
-
-<!-- MAIN -->
+<div class="demo">
+TRACKING SYSTEM — OFFICIAL COURIER SERVICE
+</div>
 
 <div class="container">
 
-    <div class="card">
-
-        <h2>📦 Track Your Parcel</h2>
-
-        <input
-            type="tel"
-            id="mobile"
-            placeholder="Enter Mobile Number"
-            maxlength="10"
-        >
-
-        <button onclick="trackParcel()">
-            🔍 Track Parcel
-        </button>
-
-
-        <!-- ERROR -->
-
-        <div class="error" id="error">
-
-            ❌ No parcel found for this mobile number.
-
-        </div>
-
-
-        <!-- RESULT -->
-
-        <div class="result" id="result">
-
-
-            <!-- STATUS -->
-
-            <div class="status">
-
-                <div class="status-title">
-                    Current Parcel Status
-                </div>
-
-                <strong>
-                    🚚 In Transit
-                </strong>
-
-            </div>
-
-
-            <!-- CUSTOMER DETAILS -->
-
-            <div class="details">
-
-                <p>
-                    <b>Customer Name:</b><br>
-                    Mamtha
-                </p>
-
-                <p>
-                    <b>Mobile Number:</b><br>
-                    9611025251
-                </p>
-
-                <p>
-                    <b>Delivery Address:</b><br>
-                    HRBR MTR Hotel,<br>
-                    3rd Floor,<br>
-                    Bangalore - 560043
-                </p>
-
-                <p>
-                    <b>Tracking ID:</b><br>
-                    PHG-9611025251
-                </p>
-
-            </div>
-
-
-            <!-- EXPECTED DELIVERY -->
-
-            <div class="delivery-date">
-
-                📅 Expected Delivery
-
-                <span>
-                    25 September 2026
-                </span>
-
-            </div>
-
-
-            <!-- DELIVERY CHARGE -->
-
-            <div class="charge">
-
-                <div class="charge-title">
-                    💳 Delivery Charge
-                </div>
-
-                <span class="pending">
-                    ⚠️ PENDING
-                </span>
-
-            </div>
-
-
-            <!-- TRACKING TIMELINE -->
-
-            <div class="timeline">
-
-
-                <div class="step">
-
-                    <b>📦 Order Confirmed</b>
-
-                    <br>
-
-                    <small>
-                        Parcel information received.
-                    </small>
-
-                </div>
-
-
-                <div class="step">
-
-                    <b>🏢 Parcel Processing</b>
-
-                    <br>
-
-                    <small>
-                        Parcel is being prepared.
-                    </small>
-
-                </div>
-
-
-                <div class="step">
-
-                    <b>🚚 In Transit</b>
-
-                    <br>
-
-                    <small>
-                        Parcel is currently in transit.
-                    </small>
-
-                </div>
-
-
-                <div class="step">
-
-                    <b>📅 Expected Delivery</b>
-
-                    <br>
-
-                    <small>
-                        25 September 2026
-                    </small>
-
-                </div>
-
-
-                <div class="step">
-
-                    <b class="pending-step">
-                        💳 Delivery Charge
-                    </b>
-
-                    <br>
-
-                    <small class="pending-step">
-                        Pending
-                    </small>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
+<div class="card">
+
+<h2>📦 Track Your Parcel</h2>
+
+<input
+    type="tel"
+    id="mobile"
+    placeholder="Enter Mobile Number"
+    maxlength="10"
+>
+
+<button onclick="trackParcel()">
+    🔍 Track Parcel
+</button>
+
+<div class="error" id="error">
+    ❌ No parcel found for this mobile number.
+</div>
+
+<div class="result" id="result">
+
+<!-- STATUS -->
+
+<div class="status">
+    Current Parcel Status
+    <br>
+    <strong>🚚 In Transit</strong>
+</div>
+
+<!-- CUSTOMER DETAILS -->
+
+<div class="details">
+
+<p>
+<b>Customer Name:</b><br>
+Mamtha
+</p>
+
+<p>
+<b>Mobile Number:</b><br>
+9611025251
+</p>
+
+<p>
+<b>Delivery Address:</b><br>
+HRBR MTR Hotel,<br>
+3rd Floor,<br>
+Bangalore - 560043
+</p>
+
+<p>
+<b>Tracking ID:</b><br>
+PHG-9611025251
+</p>
 
 </div>
 
+<!-- EXPECTED DELIVERY -->
 
-<!-- FOOTER -->
+<div class="delivery">
+
+📅 Expected Delivery
+
+<strong>
+25 September 2026
+</strong>
+
+</div>
+
+<!-- DELIVERY CHARGE -->
+
+<div class="charge">
+
+💳 Delivery Charge
+
+<strong>
+⚠️ PENDING
+</strong>
+
+</div>
+
+<!-- TIMELINE -->
+
+<div class="timeline">
+
+<div class="step">
+    <b>📦 Order Confirmed</b>
+    <p>18 September 2026</p>
+</div>
+
+<div class="step">
+    <b>🏢 Parcel Processing</b>
+    <p>19 September 2026</p>
+</div>
+
+<div class="step">
+    <b>🚚 In Transit</b>
+    <p>20 September 2026</p>
+</div>
+
+<div class="step">
+    <b>📦 Parcel Dispatch</b>
+    <p>Dispatch date: To be updated</p>
+</div>
+
+<div class="step">
+    <b>💳 Delivery Charge</b>
+    <p>Pending</p>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
 
 <div class="footer">
-
-    © 2026 Premium Hamper Gifts
-    <br>
-    Parcel Tracking System
-
+© 2026 Premium Hamper Gifts
+<br>
+Gift Parcel Tracking System
 </div>
-
-
-<!-- JAVASCRIPT -->
 
 <script>
 
-function trackParcel() {
+function trackParcel(){
 
     const mobile =
         document.getElementById("mobile").value.trim();
@@ -471,28 +354,21 @@ function trackParcel() {
     const error =
         document.getElementById("error");
 
+    result.style.display="none";
+    error.style.display="none";
 
-    // Hide previous results
+    if(mobile === "9611025251"){
 
-    result.style.display = "none";
-    error.style.display = "none";
+        result.style.display="block";
 
+    }else{
 
-    // Your tracking number
-
-    if (mobile === "9611025251") {
-
-        result.style.display = "block";
-
-    } else {
-
-        error.style.display = "block";
+        error.style.display="block";
 
     }
-
 }
 
 </script>
 
 </body>
-    </html>
+</html>
