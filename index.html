@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Premium Parcel Tracking — title>
+<title>Premium Parcel Tracking —</title>
 
 <style>
 *{
@@ -157,12 +157,17 @@ body{
     margin-bottom:18px;
 }
 
-.status-card{
+.status-card,
+.info-card,
+.timeline-card{
     background:#fff;
-    border-radius:18px;
-    padding:25px;
     border:1px solid #e8ebf0;
+    border-radius:18px;
     box-shadow:0 8px 25px rgba(0,0,0,.05);
+}
+
+.status-card{
+    padding:25px;
 }
 
 .status-top{
@@ -194,14 +199,6 @@ body{
     font-weight:800;
 }
 
-.status-message{
-    margin-top:18px;
-    padding-top:18px;
-    border-top:1px solid #edf0f4;
-    color:#606a78;
-    font-size:13px;
-}
-
 .grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -210,9 +207,6 @@ body{
 }
 
 .info-card{
-    background:#fff;
-    border:1px solid #e8ebf0;
-    border-radius:18px;
     padding:22px;
 }
 
@@ -248,9 +242,6 @@ body{
     line-height:1.5;
 }
 
-
-/* EXPECTED DELIVERY */
-
 .delivery-card{
     margin-top:18px;
     background:#f5fbff;
@@ -277,16 +268,12 @@ body{
     margin-top:6px;
 }
 
-
-/* PROFESSIONAL DELIVERY CHARGE */
-
-.professional-charge{
+.charge-card{
     margin-top:20px;
-    background:linear-gradient(135deg,#fffdf5,#fff8df);
+    background:#fffdf5;
     border:1px solid #ead27a;
     border-radius:20px;
     padding:22px;
-    box-shadow:0 10px 30px rgba(80,60,0,.08);
 }
 
 .charge-header{
@@ -310,8 +297,7 @@ body{
 
 .charge-heading{
     font-size:18px;
-    font-weight:850;
-    color:#202838;
+    font-weight:800;
 }
 
 .charge-caption{
@@ -329,7 +315,6 @@ body{
     color:#765900;
     font-size:9px;
     font-weight:900;
-    letter-spacing:.5px;
 }
 
 .charge-divider{
@@ -367,7 +352,6 @@ body{
     border-radius:8px;
     font-size:10px;
     font-weight:900;
-    white-space:nowrap;
 }
 
 .charge-note{
@@ -380,13 +364,7 @@ body{
     line-height:1.5;
 }
 
-
-/* TIMELINE */
-
 .timeline-card{
-    background:#fff;
-    border:1px solid #e8ebf0;
-    border-radius:18px;
     padding:25px;
     margin-top:18px;
 }
@@ -431,7 +409,6 @@ body{
 .event-title{
     font-size:15px;
     font-weight:800;
-    color:#172033;
 }
 
 .event-time{
@@ -454,25 +431,14 @@ body{
     padding:30px 15px;
 }
 
-
-/* MOBILE */
-
 @media(max-width:650px){
 
     .header{
         padding:16px 14px;
     }
 
-    .header-inner{
-        gap:8px;
-    }
-
     .logo-text{
         font-size:18px;
-    }
-
-    .logo-sub{
-        font-size:10px;
     }
 
     .demo-badge{
@@ -487,20 +453,14 @@ body{
 
     .search-card{
         padding:22px;
-        border-radius:17px;
     }
 
     .search-title{
         font-size:22px;
     }
 
-    .search-subtitle{
-        line-height:1.5;
-    }
-
     .search-box{
         display:block;
-        padding:5px;
     }
 
     .search-box input{
@@ -536,12 +496,8 @@ body{
         flex-direction:column;
     }
 
-    .not-payable{
-        margin-top:2px;
-    }
-
-    .charge-amount{
-        font-size:26px;
+    .demo-label{
+        margin-left:auto;
     }
 }
 </style>
@@ -549,443 +505,308 @@ body{
 
 <body>
 
-
 <header class="header">
-
     <div class="header-inner">
 
         <div class="logo">
-
-            <div class="logo-icon">
-                P
-            </div>
+            <div class="logo-icon">P</div>
 
             <div>
-
-                <div class="logo-text">
-                    Premium Parcel
-                </div>
-
-                <div class="logo-sub">
-                 Shipment Tracking
-                </div>
-
+                <div class="logo-text">Premium Parcel</div>
+                <div class="logo-sub">Shipment Tracking —</div>
             </div>
-
         </div>
 
         <div class="demo-badge">
-            CHECK HERE
+            CHECK HERE 
         </div>
 
     </div>
-
 </header>
-
 
 <main class="container">
 
+<section class="search-card">
 
-    <!-- SEARCH -->
+    <div class="search-title">
+        Track Your Shipment
+    </div>
 
-    <section class="search-card">
+    <div class="search-subtitle">
+        Enter theYour tracking ID below
+    </div>
 
-        <div class="search-title">
-            Track Your Shipment
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="trackingInput"
+            placeholder="Enter Tracking ID"
+            autocomplete="off"
+        >
+
+        <button onclick="trackShipment()">
+            TRACK SHIPMENT
+        </button>
+
+    </div>
+
+    <div id="error">
+        Invalid tracking ID. Please enter:
+        <strong>C-P-DKK500028</strong>
+    </div>
+
+</section>
+
+
+<div id="result">
+
+
+    <section class="status-card">
+
+        <div class="status-top">
+
+            <div>
+                <div class="tracking-label">
+                    Tracking Code
+                </div>
+
+                <div class="tracking-number">
+                    C-P-DKK500028
+                </div>
+            </div>
+
+            <div class="demo-status">
+                DELIVERY STATUS
+            </div>
+
         </div>
 
-        <div class="search-subtitle">
-         tracking page — enter the demo tracking ID
+    </section>
+
+
+    <div class="grid">
+
+        <section class="info-card">
+
+            <div class="section-title">
+                Receiver Details
+            </div>
+
+            <div class="info">
+                <div class="label">Receiver</div>
+                <div class="value">Rahmath Fatima</div>
+            </div>
+
+            <div class="info">
+                <div class="label">Contact</div>
+                <div class="value">9059403840</div>
+            </div>
+
+            <div class="info">
+                <div class="label">Location</div>
+                <div class="value">
+                    Hyderabad, Telangana - 500028, India
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="info-card">
+
+            <div class="section-title">
+                Delivery Address
+            </div>
+
+            <div class="info">
+                <div class="label">City</div>
+                <div class="value">Hyderabad</div>
+            </div>
+
+            <div class="info">
+                <div class="label">State</div>
+                <div class="value">Telangana</div>
+            </div>
+
+            <div class="info">
+                <div class="label">PIN Code</div>
+                <div class="value">500028</div>
+            </div>
+
+            <div class="info">
+                <div class="label">Country</div>
+                <div class="value">India</div>
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <section class="delivery-card">
+
+        <div class="delivery-title">
+            Expected Delivery
         </div>
 
-        <div class="search-box">
+        <div class="delivery-date">
+            09 October 2026
+        </div>
 
-            <input
-                type="text"
-                id="trackingInput"
-                placeholder="Enter Tracking ID"
-                autocomplete="off"
-            >
+        <div class="delivery-time">
+            02:00 PM – 03:00 PM
+        </div>
 
-            <button onclick="trackShipment()">
-                TRACK SHIPMENT
-            </button>
+    </section>
+
+
+    <section class="charge-card">
+
+        <div class="charge-header">
+
+            <div class="charge-icon">₹</div>
+
+            <div>
+                <div class="charge-heading">
+                    Delivery Charge
+                </div>
+
+                <div class="charge-caption">
+                     information only
+                </div>
+            </div>
+
+            <div class="demo-label">
+                CHECK ONLY
+            </div>
+
+        </div>
+
+        <div class="charge-divider"></div>
+
+        <div class="charge-content">
+
+            <div>
+                <div class="charge-small">
+                    PAYABLE AMOUNT
+                </div>
+
+                <div class="charge-amount">
+                    ₹1,998.90
+                </div>
+            </div>
+
+            <div class="not-payable">
+                PAYABLE
+            </div>
+
+        </div>
 
         
     </section>
 
 
-    <!-- RESULT -->
+    <section class="timeline-card">
 
-    <div id="result">
+        <div class="section-title">
+            Tracking History 
+        </div>
+
+        <div class="timeline">
+
+            <div class="event">
+                <div class="circle"></div>
+
+                <div class="event-title">
+                    Booking Created
+                </div>
+
+                <div class="event-time">
+                    08 October 2026
+                </div>
+
+                <div class="event-description">
+                    shipment record created.
+                </div>
+            </div>
 
 
-        <!-- DEMO WARNING -->
+            <div class="event">
+                <div class="circle"></div>
 
-        <div class="demo-warning">
+                <div class="event-title">
+                    Order Confirmed
+                </div>
 
-            <strong>NOTE:</strong>
-            This Charge is for Payment purposes.
-            It is A real courier or payment tracking system.
+                <div class="event-time">
+                    08 October 2026
+                </div>
+
+                <div class="event-description">
+                    order confirmation recorded.
+                </div>
+            </div>
+
+
+            <div class="event">
+                <div class="circle"></div>
+
+                <div class="event-title">
+                    Delivery Charge
+                </div>
+
+                <div class="event-time">
+                    information
+                </div>
+
+                <div class="event-description">
+                     charge shown for payable:
+                    ₹1,998.90.
+                </div>
+            </div>
+
+
+            <div class="event">
+                <div class="circle"></div>
+
+                <div class="event-title">
+                    Parcel Dispatch
+                </div>
+
+                <div class="event-time">
+                    09 October 2026
+                </div>
+
+                <div class="event-description">
+                 dispatch scheduled.
+                </div>
+            </div>
+
+
+            <div class="event">
+                <div class="circle"></div>
+
+                <div class="event-title">
+                    Expected Delivery
+                </div>
+
+                <div class="event-time">
+                    09 October 2026 • 02:00 PM – 03:00 PM
+                </div>
+
+            </div>
 
         </div>
 
+    </section>
 
-        <!-- STATUS -->
-
-        <section class="status-card">
-
-            <div class="status-top">
-
-                <div>
-
-                    <div class="tracking-label">
-                        YOUR TRACKING CODE 
-                    </div>
-
-                    <div class="tracking-number">
-                        C-P-DKK500028
-                    </div>
-
-                </div>
-
-                <div class="demo-status">
-                    DELIVERY STATUS
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- DETAILS -->
-
-        <div class="grid">
-
-
-            <!-- RECEIVER -->
-
-            <section class="info-card">
-
-                <div class="section-title">
-                    Receiver Details
-                </div>
-
-                <div class="info">
-
-                    <div class="label">
-                        Receiver
-                    </div>
-
-                    <div class="value">
-                        Rahmath Fatima
-                    </div>
-
-                </div>
-
-                <div class="info">
-
-                    <div class="label">
-                        Contact
-                    </div>
-
-                    <div class="value">
-                        9059403840
-                    </div>
-
-                </div>
-
-                <div class="info">
-
-                    <div class="label">
-                        Location
-                    </div>
-
-                    <div class="value">
-                        Hyderabad, Telangana - 500028, India
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ADDRESS -->
-
-            <section class="info-card">
-
-                <div class="section-title">
-                    Delivery Address
-                </div>
-
-                <div class="info">
-
-                    <div class="label">
-                        City
-                    </div>
-
-                    <div class="value">
-                        Hyderabad
-                    </div>
-
-                </div>
-
-                <div class="info">
-
-                    <div class="label">
-                        State
-                    </div>
-
-                    <div class="value">
-                        Telangana
-                    </div>
-
-                </div>
-
-                <div class="info">
-
-                    <div class="label">
-                        PIN Code
-                    </div>
-
-                    <div class="value">
-                        500028
-                    </div>
-
-                </div>
-
-                <div class="info">
-
-                    <div class="label">
-                        Country
-                    </div>
-
-                    <div class="value">
-                        India
-                    </div>
-
-                </div>
-
-            </section>
-
-        </div>
-
-
-        <!-- EXPECTED DELIVERY -->
-
-        <section class="delivery-card">
-
-            <div class="delivery-title">
-                Expected Delivery
-            </div>
-
-            <div class="delivery-date">
-                09 October 2026
-            </div>
-
-            <div class="delivery-time">
-                02:00 PM – 03:00 PM
-            </div>
-
-        </section>
-
-
-        <!-- PROFESSIONAL DELIVERY CHARGE -->
-
-        <section class="professional-charge">
-
-            <div class="charge-header">
-
-                <div class="charge-icon">
-                    ₹
-                </div>
-
-                <div>
-
-                    <div class="charge-heading">
-                        Delivery Charge
-                    </div>
-
-                    <div class="charge-caption">
-                        Shipment delivery information
-                    </div>
-
-                </div>
-
-                <div class="demo-label">
-                    TRACK PARCEL
-                </div>
-
-            </div>
-
-
-            <div class="charge-divider"></div>
-
-
-            <div class="charge-content">
-
-                <div>
-
-                    <div class="charge-small">
-                        PAYABLE AMOUNT
-                    </div>
-
-                    <div class="charge-amount">
-                        ₹1,998.90
-                    </div>
-
-                </div>
-
-                <div class="not-payable">
-                     PAY NOW
-                </div>
-
-            </div>
-
-
-            <div class="charge-note">
-                This delivery charge is displayed for
-                Payble purposess.Pay payment
-                is requested or required.
-            </div>
-
-        </section>
-
-
-        <!-- TRACKING HISTORY -->
-
-        <section class="timeline-card">
-
-            <div class="section-title">
-                Tracking History
-            </div>
-
-
-            <div class="timeline">
-
-
-                <!-- BOOKING -->
-
-                <div class="event">
-
-                    <div class="circle"></div>
-
-                    <div class="event-title">
-                        Booking Created
-                    </div>
-
-                    <div class="event-time">
-                        08 October 2026
-                    </div>
-
-                    <div class="event-description">
-                         shipment record created.
-                    </div>
-
-                </div>
-
-
-                <!-- CONFIRMED -->
-
-                <div class="event">
-
-                    <div class="circle"></div>
-
-                    <div class="event-title">
-                        Order Confirmed
-                    </div>
-
-                    <div class="event-time">
-                        08 October 2026
-                    </div>
-
-                    <div class="event-description">
-                        order confirmation recorded.
-                    </div>
-
-                </div>
-
-
-                <!-- CHARGE -->
-
-                <div class="event">
-
-                    <div class="circle"></div>
-
-                    <div class="event-title">
-                        Delivery Charge
-                    </div>
-
-                    <div class="event-time">
-                        charge Information
-                    </div>
-
-                    <div class="event-description">
-                        Pay delivery charge:
-                        ₹1,998.90 — payable.
-                    </div>
-
-                </div>
-
-
-                <!-- DISPATCH -->
-
-                <div class="event">
-
-                    <div class="circle"></div>
-
-                    <div class="event-title">
-                        Parcel Dispatch
-                    </div>
-
-                    <div class="event-time">
-                        09 October 2026
-                    </div>
-
-                    <div class="event-description">
-                        parcel dispatch scheduled.
-                    </div>
-
-                </div>
-
-
-                <!-- DELIVERY -->
-
-                <div class="event">
-
-                    <div class="circle"></div>
-
-                    <div class="event-title">
-                        Expected Delivery
-                    </div>
-
-                    <div class="event-time">
-                        09 October 2026
-                        • 02:00 PM – 03:00 PM
-                    </div>
-
-                    <div class="event-description">
-                        Expected delivery window for this
-                        Parcel shipment.
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-    </div>
+</div>
 
 </main>
 
-
 <footer class="footer">
-
-    PARCEL BOX • A real shipment tracking service
-
+     PARCEL TRACKING PAGE
 </footer>
 
 
@@ -995,21 +816,15 @@ const VALID_TRACKING_ID = "C-P-DKK500028";
 
 function trackShipment(){
 
-    const input =
-        document.getElementById("trackingInput");
-
-    const result =
-        document.getElementById("result");
-
-    const error =
-        document.getElementById("error");
+    const input = document.getElementById("trackingInput");
+    const result = document.getElementById("result");
+    const error = document.getElementById("error");
 
     const trackingId =
         input.value.trim().toUpperCase();
 
     result.style.display = "none";
     error.style.display = "none";
-
 
     if(trackingId === VALID_TRACKING_ID){
 
@@ -1032,7 +847,6 @@ function trackShipment(){
 
 }
 
-
 document
 .getElementById("trackingInput")
 .addEventListener("keydown",function(event){
@@ -1046,4 +860,4 @@ document
 </script>
 
 </body>
-          </html>
+                </html>
